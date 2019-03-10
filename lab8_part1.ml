@@ -229,7 +229,7 @@ Exercise 2C: Create an IntSafeInterval module using the new
 MakeSafeInterval functor.
 ......................................................................*)
 
-module MakeSafeInterval  =
+module IntSafeInterval  =
   MakeInterval (struct
                   type  t = int
                   let compare = Pervasives.compare
