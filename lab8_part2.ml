@@ -107,14 +107,14 @@ module MakeStack (Element: SERIALIZE) : (STACK with type element = Element.t) =
 
     let pop_helper (s : stack) : (element * stack) =
       match s with
-      | empty -> raise Empty
+      | [] -> raise Empty
       | hd :: tl -> (hd, tl)
 
     let top (s : stack) : element =
-      if s = empty then raise Empty else fst (pop_helper s)
+      fst (pop_helper s)
 
     let pop (s : stack) : stack =
-      if s = empty then raise Empty else snd (pop_helper s)
+      snd (pop_helper s)
 
     let map (f : element -> element) (s : stack) : stack =
      List.map f s
